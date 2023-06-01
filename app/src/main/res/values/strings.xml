@@ -8,8 +8,10 @@
     <string name="login">Ingresar</string>
     <string name="logout">Log out</string>
     <string name="login_title">¡Ingresá y gestioná tus Notas!</string>
+    <string name="register_title">Crear nueva cuenta</string>
     <string name="login_username">Email</string>
     <string name="login_password">Contraseña</string>
+    <string name="login_repassword">Repite la Contraseña</string>
     <string name="login_forgot">¿Olvidaste tu contraseña?</string>
     <string name="login_registerLink">Crear cuenta</string>
 </resources>

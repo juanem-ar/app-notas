@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ import com.auth0.android.provider.WebAuthProvider;
 import com.auth0.android.result.Credentials;
 
 import org.w3c.dom.Text;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,13 +35,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button loginButton = findViewById(R.id.loginButton);
+        Button loginNormal = findViewById(R.id.login);
         TextView registerButton = findViewById(R.id.registerButton);
+        TextView username = (TextView) findViewById(R.id.username);
+        TextView password = (TextView) findViewById(R.id.password);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RegistroUser.class);
                 startActivity(intent);
+            }
+        });
+
+        loginNormal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()){
+                    if(validarEmail(username.getText().toString())){
+                        // TODO logica del login
+                        Toast.makeText(MainActivity.this, "FALTA COMPLETAR ESTE METODO", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(MainActivity.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(MainActivity.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
@@ -55,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getBooleanExtra(EXTRA_CLEAR_CREDENTIALS, false)) {
             logout();
         }
+    }
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
     private void login() {
         WebAuthProvider.login(auth0)
