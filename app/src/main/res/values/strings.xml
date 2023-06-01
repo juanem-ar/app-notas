@@ -3,4 +3,13 @@
     <string name="act_title_Registro">Registrate</string>
     <string name="act_title_ListadoNotas">Listado de tus notas</string>
     <string name="act_title_NuevaNota">Crea una nota</string>
+    <string name="com_auth0_client_id">DQHT0abEVRONj0MoqZK0JyjBNnYdfrYB</string>
+    <string name="com_auth0_domain">dev-zeb7cntx6zw0n70x.us.auth0.com</string>
+    <string name="login">Ingresar</string>
+    <string name="logout">Log out</string>
+    <string name="login_title">¡Ingresá y gestioná tus Notas!</string>
+    <string name="login_username">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_forgot">¿Olvidaste tu contraseña?</string>
+    <string name="login_registerLink">Crear cuenta</string>
 </resources>
