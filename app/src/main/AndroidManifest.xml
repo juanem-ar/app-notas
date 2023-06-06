@@ -30,15 +30,18 @@
             android:name=".RegistroUser"
             android:exported="false"
             android:label="@string/act_title_Registro"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ListadoNotas"
             android:exported="false"
+            android:theme="@style/AppTheme"
             android:label="@string/act_title_ListadoNotas"/>
         <activity
             android:name=".NuevaNota"
             android:exported="false"
             android:label="Crea una Nota"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".ListadoNotas" />
     </application>
 
