@@ -16,7 +16,7 @@ import com.auth0.android.callback.Callback;
 import com.auth0.android.provider.WebAuthProvider;
 import com.ispc.notas.R;
 
-public class ListadoNotas extends AppCompatActivity {
+public class ListadoNotasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class ListadoNotas extends AppCompatActivity {
         crearNota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListadoNotas.this, NuevaNota.class);
+                Intent intent = new Intent(ListadoNotasActivity.this, NuevaNotaActivity.class);
                 startActivity(intent);
             }
         });
@@ -45,9 +45,9 @@ public class ListadoNotas extends AppCompatActivity {
                 .start(this, new Callback<Void, AuthenticationException>() {
                     @Override
                     public void onSuccess(@Nullable Void payload) {
-                        Intent intent = new Intent(ListadoNotas.this, MainActivity.class);
+                        Intent intent = new Intent(ListadoNotasActivity.this, MainActivity.class);
                         startActivity(intent);
-                        Toast.makeText(ListadoNotas.this, "Gracias por visitarnos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ListadoNotasActivity.this, "Gracias por visitarnos", Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
@@ -59,7 +59,7 @@ public class ListadoNotas extends AppCompatActivity {
                 });
     }
     private void showNextActivity() {
-        Intent intent = new Intent(ListadoNotas.this, ListadoNotas.class);
+        Intent intent = new Intent(ListadoNotasActivity.this, ListadoNotasActivity.class);
         startActivity(intent);
         finish();
     }

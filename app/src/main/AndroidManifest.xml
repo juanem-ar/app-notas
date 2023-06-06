@@ -27,22 +27,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RegistroUser"
+            android:name=".activities.RegistroUserActivity"
             android:exported="false"
             android:label="@string/act_title_Registro"
             android:theme="@style/AppTheme"
             android:parentActivityName=".activities.MainActivity"/>
         <activity
-            android:name=".activities.ListadoNotas"
+            android:name=".activities.ListadoNotasActivity"
             android:exported="false"
             android:theme="@style/AppTheme"
             android:label="@string/act_title_ListadoNotas"/>
         <activity
-            android:name=".activities.NuevaNota"
+            android:name=".activities.NuevaNotaActivity"
             android:exported="false"
             android:label="Crea una Nota"
             android:theme="@style/AppTheme"
-            android:parentActivityName=".activities.ListadoNotas" />
+            android:parentActivityName=".activities.ListadoNotasActivity" />
     </application>
 
 </manifest>

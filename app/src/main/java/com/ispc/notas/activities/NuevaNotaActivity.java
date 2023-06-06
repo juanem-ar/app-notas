@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.ispc.notas.R;
 
-public class NuevaNota extends AppCompatActivity {
+public class NuevaNotaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

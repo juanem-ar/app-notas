@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegistroUser.class);
+                Intent intent = new Intent(MainActivity.this, RegistroUserActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(@Nullable final Credentials credentials) {
-                        Intent intent = new Intent(MainActivity.this, ListadoNotas.class);
+                        Intent intent = new Intent(MainActivity.this, ListadoNotasActivity.class);
                         intent.putExtra(EXTRA_ACCESS_TOKEN, credentials.getAccessToken());
                         startActivity(intent);
                         finish();

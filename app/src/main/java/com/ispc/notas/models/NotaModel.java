@@ -1,14 +1,14 @@
 package com.ispc.notas.models;
 
-public class Note {
+public class NotaModel {
     private long id;
     private String title;
     private String description;
 
-    public Note() {
+    public void Nota() {
     }
 
-    public Note(String title, String description) {
+    public void Nota(String title, String description) {
         this.title = title;
         this.description = description;
     }
