@@ -1,6 +1,6 @@
 package com.ispc.notas.models;
 
-public class NotaModel {
+public class Nota {
     private long id;
     private String title;
     private String description;
