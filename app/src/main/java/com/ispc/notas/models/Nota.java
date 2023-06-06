@@ -5,10 +5,15 @@ public class Nota {
     private String title;
     private String description;
 
-    public void Nota() {
+    public Nota() {
     }
 
-    public void Nota(String title, String description) {
+    public Nota(long noteId, String title, String description) {
+        this.title = title;
+        this.description = description;
+        this.id = noteId;
+    }
+    public Nota(String title, String description) {
         this.title = title;
         this.description = description;
     }

@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.ispc.notas.models.Nota;
 import com.ispc.notas.utils.DbHelper;
@@ -22,10 +23,10 @@ public class NotaService {
 
     public Nota createNota(String title, String description) {
         ContentValues values = new ContentValues();
-        values.put("title", title);
-        values.put("description", description);
+        values.put("titulo", title);
+        values.put("descripcion", description);
 
-        long id = database.insert("notes", null, values);
+        long id = database.insert("notas", null, values);
 
         Nota nota = new Nota();
         nota.setId(id);
@@ -37,13 +38,13 @@ public class NotaService {
     public List<Nota> getNotas() {
         List<Nota> notas = new ArrayList<>();
 
-        Cursor cursor = database.query("notes", null, null, null, null, null, null);
+        Cursor cursor = database.query("notas", null, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") long id = cursor.getLong(cursor.getColumnIndex("id"));
-                @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
-                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+                long id = cursor.getLong(cursor.getColumnIndex("id"));
+                String title = cursor.getString(cursor.getColumnIndex("titulo"));
+                String description = cursor.getString(cursor.getColumnIndex("descripcion"));
 
                 Nota nota = new Nota();
                 nota.setId(id);
@@ -57,8 +58,6 @@ public class NotaService {
         cursor.close();
         return notas;
     }
-
-    // Rest of the methods for updating and deleting notes
 
     public void closeConnection() {
         database.close();
