@@ -14,4 +14,12 @@
     <string name="login_repassword">Repite la Contraseña</string>
     <string name="login_forgot">¿Olvidaste tu contraseña?</string>
     <string name="login_registerLink">Crear cuenta</string>
+    <string name="titulo">Título</string>
+    <string name="descripcion">Descripción</string>
+    <string name="add_descripcion">Añadir descripcion</string>
+    <string name="add_titulo">Añadir título</string>
+    <string name="guardar">Guardar</string>
+    <string name="campos_incompletos">Por favor, complete todos los campos</string>
+    <string name="nota_guardada_exitosamente">Nota guardada exitosamente</string>
+    <string name="error_guardar_nota">Error al guardar la nota</string>
 </resources>
