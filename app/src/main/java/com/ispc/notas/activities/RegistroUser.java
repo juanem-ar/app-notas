@@ -1,4 +1,4 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ispc.notas.R;
 
 import java.util.regex.Pattern;
 

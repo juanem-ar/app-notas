@@ -1,4 +1,4 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,8 +17,7 @@ import com.auth0.android.authentication.AuthenticationException;
 import com.auth0.android.callback.Callback;
 import com.auth0.android.provider.WebAuthProvider;
 import com.auth0.android.result.Credentials;
-
-import org.w3c.dom.Text;
+import com.ispc.notas.R;
 
 import java.util.regex.Pattern;
 

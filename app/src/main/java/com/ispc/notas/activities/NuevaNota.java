@@ -1,8 +1,10 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.ispc.notas.R;
 
 public class NuevaNota extends AppCompatActivity {
 

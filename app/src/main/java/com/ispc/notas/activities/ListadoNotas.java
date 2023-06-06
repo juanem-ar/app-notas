@@ -1,4 +1,4 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +14,7 @@ import com.auth0.android.Auth0;
 import com.auth0.android.authentication.AuthenticationException;
 import com.auth0.android.callback.Callback;
 import com.auth0.android.provider.WebAuthProvider;
+import com.ispc.notas.R;
 
 public class ListadoNotas extends AppCompatActivity {
 
