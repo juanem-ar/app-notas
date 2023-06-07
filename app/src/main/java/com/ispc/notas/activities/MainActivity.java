@@ -1,4 +1,4 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,8 +17,7 @@ import com.auth0.android.authentication.AuthenticationException;
 import com.auth0.android.callback.Callback;
 import com.auth0.android.provider.WebAuthProvider;
 import com.auth0.android.result.Credentials;
-
-import org.w3c.dom.Text;
+import com.ispc.notas.R;
 
 import java.util.regex.Pattern;
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegistroUser.class);
+                Intent intent = new Intent(MainActivity.this, RegistroUserActivity.class);
                 startActivity(intent);
             }
         });
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(@Nullable final Credentials credentials) {
-                        Intent intent = new Intent(MainActivity.this, ListadoNotas.class);
+                        Intent intent = new Intent(MainActivity.this, ListadoNotasActivity.class);
                         intent.putExtra(EXTRA_ACCESS_TOKEN, credentials.getAccessToken());
                         startActivity(intent);
                         finish();

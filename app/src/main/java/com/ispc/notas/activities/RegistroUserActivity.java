@@ -1,4 +1,4 @@
-package com.ispc.notas;
+package com.ispc.notas.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ispc.notas.R;
+
 import java.util.regex.Pattern;
 
-public class RegistroUser extends AppCompatActivity {
+public class RegistroUserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,16 +34,16 @@ public class RegistroUser extends AppCompatActivity {
                     if(validarEmail(username.getText().toString())){
                         if(password.getText().toString().equals(repassword.getText().toString())){
                             // TODO logica del register
-                            Intent intent = new Intent(RegistroUser.this, ListadoNotas.class);
+                            Intent intent = new Intent(RegistroUserActivity.this, ListadoNotasActivity.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(RegistroUser.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistroUserActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                         }
                     }else{
-                        Toast.makeText(RegistroUser.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegistroUserActivity.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
                     }
                 }else{
-                    Toast.makeText(RegistroUser.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistroUserActivity.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
                 }
 
                 //TODO logica de registro

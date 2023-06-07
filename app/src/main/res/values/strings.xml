@@ -6,7 +6,7 @@
     <string name="com_auth0_client_id">DQHT0abEVRONj0MoqZK0JyjBNnYdfrYB</string>
     <string name="com_auth0_domain">dev-zeb7cntx6zw0n70x.us.auth0.com</string>
     <string name="login">Ingresar</string>
-    <string name="logout">Log out</string>
+    <string name="logout">Cerrar sesión</string>
     <string name="login_title">¡Ingresá y gestioná tus Notas!</string>
     <string name="register_title">Crear nueva cuenta</string>
     <string name="login_username">Email</string>
@@ -14,4 +14,13 @@
     <string name="login_repassword">Repite la Contraseña</string>
     <string name="login_forgot">¿Olvidaste tu contraseña?</string>
     <string name="login_registerLink">Crear cuenta</string>
+    <string name="titulo">Título</string>
+    <string name="descripcion">Descripción</string>
+    <string name="add_descripcion">Añadir descripcion</string>
+    <string name="add_titulo">Añadir título</string>
+    <string name="guardar">Guardar</string>
+    <string name="campos_incompletos">Por favor, complete todos los campos</string>
+    <string name="nota_guardada_exitosamente">Nota guardada exitosamente</string>
+    <string name="error_guardar_nota">Error al guardar la nota</string>
+    <string name="crear_nota">Crear Nota</string>
 </resources>
