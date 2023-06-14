@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotaService {
-    private final SQLiteDatabase database;
+    private SQLiteDatabase database;
 
     public NotaService(Context context) {
         DbHelper dbHelper = new DbHelper(context);
@@ -35,6 +35,12 @@ public class NotaService {
         return nota;
     }
 
+    public static void deleteNota(SQLiteDatabase db, long id) {
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        db.delete("notas", selection, selectionArgs);
+    }
+
     public List<Nota> getNotas() {
         List<Nota> notas = new ArrayList<>();
 
@@ -42,9 +48,9 @@ public class NotaService {
 
         if (cursor.moveToFirst()) {
             do {
-                long id = cursor.getLong(cursor.getColumnIndex("id"));
-                String title = cursor.getString(cursor.getColumnIndex("titulo"));
-                String description = cursor.getString(cursor.getColumnIndex("descripcion"));
+                @SuppressLint("Range") long id = cursor.getLong(cursor.getColumnIndex("id"));
+                @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("titulo"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("descripcion"));
 
                 Nota nota = new Nota();
                 nota.setId(id);
@@ -58,6 +64,7 @@ public class NotaService {
         cursor.close();
         return notas;
     }
+
 
     public void closeConnection() {
         database.close();
