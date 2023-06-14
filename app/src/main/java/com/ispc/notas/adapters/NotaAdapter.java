@@ -48,7 +48,8 @@ public class NotaAdapter extends ArrayAdapter<Nota> {
         final Nota nota = getItem(position);
 
         if (nota != null) {
-            viewHolder.tituloTextView.setText(nota.getTitle());
+            String notaText = nota.getTitle() + "\n" + nota.getDescription();
+            viewHolder.tituloTextView.setText(notaText);
 
             viewHolder.deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
