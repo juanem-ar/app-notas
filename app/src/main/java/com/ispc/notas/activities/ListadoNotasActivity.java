@@ -13,11 +13,13 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ispc.notas.R;
+import com.ispc.notas.adapters.NotaAdapter;
+import com.ispc.notas.models.Nota;
+import com.ispc.notas.services.NotaService;
 import com.ispc.notas.utils.DbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class ListadoNotasActivity extends AppCompatActivity {
 
     private ListView listViewNotas;
@@ -27,7 +29,7 @@ public class ListadoNotasActivity extends AppCompatActivity {
     private Button logoutButton;
 
     private DbHelper dbHelper;
-
+    private NotaAdapter notaAdapter; 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,11 +40,21 @@ public class ListadoNotasActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logoutButton);
 
         notasList = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, notasList);
+        adapter = new ArrayAdapter<>(this, R.layout.list_item_nota, R.id.tituloTextView, notasList);
         listViewNotas.setAdapter(adapter);
 
-        // Obtén una referencia a la base de datos
         dbHelper = new DbHelper(this);
+
+        notaAdapter = new NotaAdapter(this, new ArrayList<Nota>()); 
+        listViewNotas.setAdapter(notaAdapter);
+
+        listViewNotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Nota nota = notaAdapter.getItem(position);
+                eliminarNota(nota);
+            }
+        });
 
         crearNotaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,35 +74,21 @@ public class ListadoNotasActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Actualiza la lista de notas cuando la actividad vuelve a estar en primer plano
         actualizarListaNotas();
     }
 
     private void actualizarListaNotas() {
-        // Limpia la lista actual antes de agregar las nuevas notas
-        notasList.clear();
+        NotaService notaService = new NotaService(this); 
+        List<Nota> notas = notaService.getNotas(); 
 
-        // Obtén una referencia a la base de datos en modo lectura
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        notaAdapter.clear(); 
+        notaAdapter.addAll(notas); 
+        notaAdapter.notifyDataSetChanged(); 
+    }
 
-        // Consulta las notas de la tabla "notas"
-        String[] projection = {"titulo", "descripcion"};
-        Cursor cursor = database.query("notas", projection, null, null, null, null, null);
-
-        // Leer las notas del cursor y agregarlas a la lista
-        while (cursor.moveToNext()) {
-            String titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo"));
-            String descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion"));
-            String nota = titulo + "\n " + descripcion;
-            notasList.add(nota);
-        }
-
-        // Cerrar el cursor y liberar recursos
-        cursor.close();
-        database.close();
-
-        // Notificar al adaptador que los datos han cambiado
-        adapter.notifyDataSetChanged();
+    private void eliminarNota(Nota nota) {
+        NotaService.deleteNota(dbHelper.getWritableDatabase(),nota.getId());
+        actualizarListaNotas();
     }
 
     private void abrirCrearNota() {
@@ -99,9 +97,6 @@ public class ListadoNotasActivity extends AppCompatActivity {
     }
 
     private void cerrarSesion() {
-        //TODO Realizar las acciones necesarias para cerrar sesión
-        // Por ejemplo, borrar el token de autenticación o limpiar los datos de usuario
-
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
