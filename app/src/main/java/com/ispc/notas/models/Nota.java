@@ -13,6 +13,7 @@ public class Nota {
         this.description = description;
         this.id = noteId;
     }
+
     public Nota(String title, String description) {
         this.title = title;
         this.description = description;

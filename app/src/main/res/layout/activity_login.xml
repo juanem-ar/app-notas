@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".activities.RegistroUserActivity">
+    tools:context=".activities.LoginActivity">
 
     <TextView
         android:id="@+id/signin"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
         android:gravity="center"
-        android:text="@string/register_title"
+        android:text="@string/login_title"
         android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -55,37 +55,45 @@
         android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-    <EditText
-        android:id="@+id/repassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:autofillHints="emailAddress"
-        android:background="@color/transparent"
-        android:drawableStart="@drawable/ic_baseline_key_24"
-        android:drawablePadding="20dp"
-        android:hint="@string/login_repassword"
-        android:inputType="textPassword"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/crearCuentaBoton"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:backgroundTint="@color/design_default_color_secondary"
-        android:text="@string/register_title"
+        android:text="@string/login"
+        android:textColor="#5E35B1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:text="Ingresa con tus redes sociales"
         android:textColor="#5E35B1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repassword"
+        app:layout_constraintTop_toBottomOf="@+id/registerButton"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
+    <TextView
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="59dp"
+        android:text="@string/login_registerLink"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

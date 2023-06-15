@@ -1,8 +1,6 @@
 package com.ispc.notas.activities;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +18,7 @@ import com.ispc.notas.utils.DbHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class ListadoNotasActivity extends AppCompatActivity {
 
     private ListView listViewNotas;
@@ -29,7 +28,8 @@ public class ListadoNotasActivity extends AppCompatActivity {
     private Button logoutButton;
 
     private DbHelper dbHelper;
-    private NotaAdapter notaAdapter; 
+    private NotaAdapter notaAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class ListadoNotasActivity extends AppCompatActivity {
 
         dbHelper = new DbHelper(this);
 
-        notaAdapter = new NotaAdapter(this, new ArrayList<Nota>()); 
+        notaAdapter = new NotaAdapter(this, new ArrayList<Nota>());
         listViewNotas.setAdapter(notaAdapter);
 
         listViewNotas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,16 +78,16 @@ public class ListadoNotasActivity extends AppCompatActivity {
     }
 
     private void actualizarListaNotas() {
-        NotaService notaService = new NotaService(this); 
-        List<Nota> notas = notaService.getNotas(); 
+        NotaService notaService = new NotaService(this);
+        List<Nota> notas = notaService.getNotas();
 
-        notaAdapter.clear(); 
-        notaAdapter.addAll(notas); 
-        notaAdapter.notifyDataSetChanged(); 
+        notaAdapter.clear();
+        notaAdapter.addAll(notas);
+        notaAdapter.notifyDataSetChanged();
     }
 
     private void eliminarNota(Nota nota) {
-        NotaService.deleteNota(dbHelper.getWritableDatabase(),nota.getId());
+        NotaService.deleteNota(dbHelper.getWritableDatabase(), nota.getId());
         actualizarListaNotas();
     }
 
