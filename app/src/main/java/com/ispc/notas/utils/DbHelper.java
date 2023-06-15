@@ -1,15 +1,8 @@
 package com.ispc.notas.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.ispc.notas.models.Nota;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "notas.db";

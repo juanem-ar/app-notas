@@ -17,11 +17,10 @@ import java.util.List;
 
 public class NotaAdapter extends ArrayAdapter<Nota> {
 
+    public DbHelper dbHelper;
     private LayoutInflater inflater;
     private NotaService notaService;
     private List<Nota> notas;
-
-    public DbHelper dbHelper;
 
     public NotaAdapter(Context context, List<Nota> notas) {
         super(context, 0, notas);

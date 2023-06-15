@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ListadoNotasActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".activities.ListadoNotasActivity">
 
-  <ListView
-      android:id="@+id/listViewNotas"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      android:background="#DDFFFFFF"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="15dp"
-      app:layout_constraintTop_toBottomOf="@+id/crearNota"
-      app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintVertical_bias="0.0"
-      app:layout_constraintVertical_chainStyle="packed" />
+    <ListView
+        android:id="@+id/listViewNotas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="#DDFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crearNota"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-  <Button
-      android:id="@+id/logoutButton"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="16dp"
-      android:layout_marginBottom="15dp"
-      android:background="@android:color/white"
-      android:text="@string/logout"
-      android:textColor="#FFFFFF"
-      android:textStyle="bold"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/listViewNotas"
-      tools:ignore="TextContrastCheck" />
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/white"
+        android:text="@string/logout"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewNotas"
+        tools:ignore="TextContrastCheck" />
 
-  <com.google.android.material.button.MaterialButton
-      android:id="@+id/crearNota"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_margin="20dp"
-      android:backgroundTint="@color/design_default_color_secondary"
-      android:text="@string/crear_nota"
-      android:textColor="#5E35B1"
-      android:textStyle="bold"
-      app:layout_constraintBottom_toTopOf="@+id/listViewNotas"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/crearNota"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:text="@string/crear_nota"
+        android:textColor="#5E35B1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/listViewNotas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <TextView
-      android:id="@+id/textViewTitulo"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:textStyle="bold"
-      android:textSize="18sp"
-      android:padding="8dp"
-      android:textColor="@android:color/black"
-      app:layout_constraintTop_toTopOf="@id/listViewNotas"
-      app:layout_constraintStart_toStartOf="@id/listViewNotas"
-      app:layout_constraintEnd_toEndOf="@id/listViewNotas"
-      app:layout_constraintBottom_toBottomOf="@id/listViewNotas" />
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/listViewNotas"
+        app:layout_constraintEnd_toEndOf="@id/listViewNotas"
+        app:layout_constraintStart_toStartOf="@id/listViewNotas"
+        app:layout_constraintTop_toTopOf="@id/listViewNotas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

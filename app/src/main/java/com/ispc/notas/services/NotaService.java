@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.ispc.notas.models.Nota;
 import com.ispc.notas.utils.DbHelper;
@@ -21,6 +20,12 @@ public class NotaService {
         database = dbHelper.getWritableDatabase();
     }
 
+    public static void deleteNota(SQLiteDatabase db, long id) {
+        String selection = "id = ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        db.delete("notas", selection, selectionArgs);
+    }
+
     public Nota createNota(String title, String description) {
         ContentValues values = new ContentValues();
         values.put("titulo", title);
@@ -33,12 +38,6 @@ public class NotaService {
         nota.setTitle(title);
         nota.setDescription(description);
         return nota;
-    }
-
-    public static void deleteNota(SQLiteDatabase db, long id) {
-        String selection = "id = ?";
-        String[] selectionArgs = {String.valueOf(id)};
-        db.delete("notas", selection, selectionArgs);
     }
 
     public List<Nota> getNotas() {
