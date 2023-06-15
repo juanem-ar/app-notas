@@ -3,7 +3,6 @@ package com.ispc.notas.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,38 +37,27 @@ public class LoginActivity extends AppCompatActivity {
         TextView username = findViewById(R.id.username);
         TextView password = findViewById(R.id.password);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistroUserActivity.class);
-                startActivity(intent);
-            }
+        registerButton.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, RegistroUserActivity.class);
+            startActivity(intent);
         });
 
-        loginNormal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        loginNormal.setOnClickListener(v -> {
 
-                if (!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
-                    if (validarEmail(username.getText().toString())) {
-                        // TODO logica del login
-                        Toast.makeText(LoginActivity.this, "FALTA COMPLETAR ESTE METODO", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(LoginActivity.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
-                    }
+            if (!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
+                if (validarEmail(username.getText().toString())) {
+                    login();
+                    Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
                 }
-
+            } else {
+                Toast.makeText(LoginActivity.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
             }
+
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
+        loginButton.setOnClickListener(v -> login());
 
         auth0 = new Auth0(this);
 
