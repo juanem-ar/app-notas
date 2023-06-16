@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,30 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         Button loginButton = findViewById(R.id.loginButton);
-        Button loginNormal = findViewById(R.id.login);
-        TextView registerButton = findViewById(R.id.registerButton);
-        TextView username = findViewById(R.id.username);
-        TextView password = findViewById(R.id.password);
-
-        registerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, RegistroUserActivity.class);
-            startActivity(intent);
-        });
-
-        loginNormal.setOnClickListener(v -> {
-
-            if (!username.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
-                if (validarEmail(username.getText().toString())) {
-                    login();
-                    Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(LoginActivity.this, "El email tiene un formato incorrecto", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(LoginActivity.this, "Faltan ingresar datos", Toast.LENGTH_SHORT).show();
-            }
-
-        });
 
         loginButton.setOnClickListener(v -> login());
 
@@ -85,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(@Nullable final Credentials credentials) {
-                        Intent intent = new Intent(LoginActivity.this, ListadoNotasActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra(EXTRA_ACCESS_TOKEN, credentials.getAccessToken());
                         startActivity(intent);
                         finish();
