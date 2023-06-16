@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Notas</string>
     <string name="act_title_Registro">Registrate</string>
-    <string name="act_title_ListadoNotas">Listado de tus notas</string>
-    <string name="act_title_NuevaNota">Crea una nota</string>
+    <string name="act_title_ListadoNotas">Ver video</string>
+    <string name="act_title_NuevaNota">Ver tus notas</string>
     <string name="com_auth0_client_id">DQHT0abEVRONj0MoqZK0JyjBNnYdfrYB</string>
     <string name="com_auth0_domain">dev-zeb7cntx6zw0n70x.us.auth0.com</string>
     <string name="login">Ingresar</string>
@@ -22,6 +22,6 @@
     <string name="campos_incompletos">Por favor, complete todos los campos</string>
     <string name="nota_guardada_exitosamente">Nota guardada exitosamente</string>
     <string name="error_guardar_nota">Error al guardar la nota</string>
-    <string name="crear_nota">Crear Nota</string>
+    <string name="crear_nota">Ver tus notas</string>
     <string name="bt_delete">Eliminar</string>
 </resources>

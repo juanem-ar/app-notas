@@ -97,7 +97,7 @@ public class ListadoNotasActivity extends AppCompatActivity {
     }
 
     private void cerrarSesion() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
