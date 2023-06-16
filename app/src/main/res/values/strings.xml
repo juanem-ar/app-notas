@@ -22,6 +22,6 @@
     <string name="campos_incompletos">Por favor, complete todos los campos</string>
     <string name="nota_guardada_exitosamente">Nota guardada exitosamente</string>
     <string name="error_guardar_nota">Error al guardar la nota</string>
-    <string name="crear_nota">Ver tus notas</string>
+    <string name="crear_nota">Crear una nota</string>
     <string name="bt_delete">Eliminar</string>
 </resources>

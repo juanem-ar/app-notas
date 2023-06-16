@@ -48,7 +48,7 @@
         <activity
             android:name=".activities.NuevaNotaActivity"
             android:exported="false"
-            android:label="@string/crear_nota"
+            android:label="@string/act_title_NuevaNota"
             android:parentActivityName=".activities.ListadoNotasActivity"
             android:theme="@style/AppTheme" />
     </application>
